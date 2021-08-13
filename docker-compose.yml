@@ -26,6 +26,13 @@ services:
     image: prom/prometheus:latest
     ports:
       - "9090:9090"
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"  
+
+  new-prometh:
+    image: quay.io/brancz/prometheus-example-app:v0.3.0  
+    ports:
+      - "3080:8080"
 
 volumes:
   loki:
